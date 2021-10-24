@@ -3,7 +3,7 @@ import axios from "axios";
 const ip = "127.0.0.1";
 const port = 3100;
 export const baseURL = `http://${ip}:${port}`;
-export const ImgUrl = baseURL + "/assets/upload/"
+export const ImgUrl = baseURL + "/assets/upload/"  // http://127.0.0.1:3100/assets/upload/
 
 // instance Promise
 const instance = axios.create({
@@ -38,5 +38,17 @@ export const Gql = (param) => {
                 resolve(res.data)
             })
             .catch(e => reject(e))
+    })
+}
+
+export const Http = (api,param) => {
+    return new Promise((resolve,reject) => {
+        instance.post("/api"+api,param)
+            .then(res => {
+                resolve(res.data)
+            })
+            .catch(e => {
+                reject(e)
+            })
     })
 }

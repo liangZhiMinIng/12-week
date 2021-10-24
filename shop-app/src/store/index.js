@@ -1,9 +1,12 @@
 import {createStore} from "vuex";
-import {mutations} from "@/store/mutations"
-import pageDirection from "./modules/pageDirection";
+import {mutations} from "@/store/mutations";
+import pageDirection from "@/store/modules/pageDirection"
+import good from "@/store/modules/good"
+
 export const store = createStore({
     modules:{
-        pageDirection
+        pageDirection,
+        good
     },
     state:function(){
         return {
